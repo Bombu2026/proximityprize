@@ -978,6 +978,7 @@ import Research.ProximityPrize.Frontier._CirculantTraceEnergy
 import Research.ProximityPrize.Frontier._Close07a_DoublingFoldMap
 import Research.ProximityPrize.Frontier._Close07b_DoublingInduction
 import Research.ProximityPrize.Frontier._Close07c_OddGradeVanishesFull
+import Research.ProximityPrize.Frontier._Close07d_DoublingGuardedClosure
 import Research.ProximityPrize.Frontier._Close25_LiftOneSided
 import Research.ProximityPrize.Frontier._Close26_PrimitiveCleanRecursion
 import Research.ProximityPrize.Frontier._Close27DecisionInputRegimeRestricted

@@ -49035,3 +49035,34 @@ Stickelberger bound, and does not close `δ*` or issue #164.
 ./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_TwoPowerCyclotomicTrace.lean
 ./scripts/lake-locked.sh build Research.ProximityPrize.Frontier._TwoPowerCyclotomicTrace
 ```
+
+## [444-e6-doubling-guarded-closure] The guarded E6 doubling recursion is a theorem; its unguarded residuals are false
+
+Date: 2026-11-11. Target: `BridgeB07.DoublingBijectionGuarded`, the open even half of the E6
+graded recursion, and the residuals `Close07a.FoldImageHyp` and `Close07b.FoldingBijection`
+that were meant to imply it (historical issue #444).
+
+`Frontier/_Close07d_DoublingGuardedClosure.lean` proves that for even `n > 0`, even `k` and
+`m' ≥ 1` the level-`2n` grade-`2m'` bad-value set is the `foldVal`-image of the level-`n` set at
+`(k / 2, m')` (`badVals_double_eq_image`). The grade-`1` constraint forces antipodal closure,
+so every bad carrier is a fold `A' ∪ (A' + n)`. Hence `cf_double` and
+`doublingBijectionGuarded_holds`; `oddGradeVanishesGuarded_holds` transports
+`Close07c.cf_odd_eq_zero`.
+
+Refuted, with the reusable obstruction `badVals_double_odd_eq_empty` (at odd `k` the level-`2n`
+even-grade bad set is empty, because antipodally closed carriers have even size): `FoldImageHyp`,
+`FoldingBijection` and `BridgeB07.DoublingBijection` all fail at `n = 2, k = 1, m' = 1`, where
+`cf 4 1 2 = 0` but `cf 2 0 1 ≠ 0`. None of them guards the parity of `k`, so the consumers
+`Close07a.doublingBijection_of_foldImage` and `Close07b.E6_even_fold` are vacuous.
+`BridgeB07.OddGradeVanishes` fails at `n = 1, k = 0, m = 1`.
+
+Scope: `cf` is not the cascade count behind `m*` (KB
+`deltastar-444-empirical-formulas-and-bridges-2026-06-15.md`, §F), so this structural closure
+does not touch δ* or issue #164.
+
+`#print axioms` on every new declaration reports a subset of `propext`, `Classical.choice`, and
+`Quot.sound`.
+
+```
+./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_Close07d_DoublingGuardedClosure.lean
+```
