@@ -385,7 +385,8 @@ instance (u : Fin 6 → α) (s : Fin 6 → Bool) : Decidable (SignBalanced u s) 
 
 variable (α) in
 /-- Number of class assignments balanced against a fixed sign pattern. -/
-def signBalancedCount (s : Fin 6 → Bool) : ℕ := (univ.filter (fun u : Fin 6 → α => SignBalanced u s)).card
+def signBalancedCount (s : Fin 6 → Bool) : ℕ :=
+  (univ.filter (fun u : Fin 6 → α => SignBalanced u s)).card
 
 omit [Fintype α] in
 /-- Sign-balance is invariant under a simultaneous permutation of the six positions. -/
@@ -520,7 +521,8 @@ theorem antipodalBalanced_iff (t : Fin 6 → α × Bool) :
       simpa [key] using this
 
 /-- Split the antipodally balanced tuples by their sign pattern. -/
-theorem card_antipodalBalanced : (univ.filter (fun t : Fin 6 → α × Bool => AntipodalBalanced t)).card
+theorem card_antipodalBalanced :
+    (univ.filter (fun t : Fin 6 → α × Bool => AntipodalBalanced t)).card
     = ∑ s : Fin 6 → Bool, signBalancedCount α s := by
   have h1 : (univ.filter (fun t : Fin 6 → α × Bool => AntipodalBalanced t)).card
       = (univ.filter (fun p : (Fin 6 → α) × (Fin 6 → Bool) => SignBalanced p.1 p.2)).card := by
@@ -537,7 +539,8 @@ theorem card_sign_three :
       = 20 := by decide
 
 /-- **The count over `m` antipodal classes** is `20` times the triple count. -/
-theorem card_antipodalBalanced_eq : (univ.filter (fun t : Fin 6 → α × Bool => AntipodalBalanced t)).card
+theorem card_antipodalBalanced_eq :
+    (univ.filter (fun t : Fin 6 → α × Bool => AntipodalBalanced t)).card
     = 20 * ((univ : Finset ((α × α × α) × (α × α × α))).filter
         (fun pq => SameCount pq.1 pq.2)).card := by
   rw [card_antipodalBalanced]
@@ -558,7 +561,8 @@ end Positions
 
 section Transfer
 
-/-- Coordinates on `ZMod (m + m)`: class `j < m` and a sign selecting `j` or its antipode `j + m`. -/
+/-- Coordinates on `ZMod (m + m)`: class `j < m` and a sign selecting `j` or its antipode
+`j + m`. -/
 def halfEnc (m : ℕ) (p : Fin m × Bool) : ZMod (m + m) :=
   ((p.1.val + (if p.2 then m else 0) : ℕ) : ZMod (m + m))
 
