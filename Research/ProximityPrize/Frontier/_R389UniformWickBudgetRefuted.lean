@@ -192,8 +192,11 @@ theorem not_uniformSubgroupWickBudget (C : ℝ) : ¬ UniformSubgroupWickBudget C
 end ArkLib.ProximityGap.R389UniformWickBudgetRefuted
 
 /-! ## Axiom audit -/
-#print axioms ArkLib.ProximityGap.R389UniformWickBudgetRefuted.pred_le_card_torsionSet
-#print axioms ArkLib.ProximityGap.R389UniformWickBudgetRefuted.card_torsionSet_le_of_budget
-#print axioms ArkLib.ProximityGap.R389UniformWickBudgetRefuted.not_uniformSubgroupWickBudget_of_nonneg
-#print axioms ArkLib.ProximityGap.R389UniformWickBudgetRefuted.not_uniformSubgroupWickBudget_of_neg
-#print axioms ArkLib.ProximityGap.R389UniformWickBudgetRefuted.not_uniformSubgroupWickBudget
+section AxiomAudit
+open ArkLib.ProximityGap.R389UniformWickBudgetRefuted
+#print axioms pred_le_card_torsionSet
+#print axioms card_torsionSet_le_of_budget
+#print axioms not_uniformSubgroupWickBudget_of_nonneg
+#print axioms not_uniformSubgroupWickBudget_of_neg
+#print axioms not_uniformSubgroupWickBudget
+end AxiomAudit
