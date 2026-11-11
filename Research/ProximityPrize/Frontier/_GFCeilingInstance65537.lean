@@ -8,7 +8,8 @@ import Mathlib.Analysis.Real.Pi.Bounds
 import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
 import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.Tactic
+import Mathlib.Tactic.NormNum.Prime
+import Mathlib.Tactic.LinearCombination
 
 /-!
 # LANE S4 — the GF-ceiling brick at the generalized-Fermat prime p = 65537
