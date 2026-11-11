@@ -965,6 +965,7 @@ import Research.ProximityPrize.Frontier._CharZeroLamLeungSlackLower
 import Research.ProximityPrize.Frontier._CharZeroMGFBesselBound
 import Research.ProximityPrize.Frontier._CharZeroOpenCoreSmallR
 import Research.ProximityPrize.Frontier._CharZeroRoomDominance
+import Research.ProximityPrize.Frontier._CharZeroStepLawAllDepth
 import Research.ProximityPrize.Frontier._CharZeroStepRatioMonotone
 import Research.ProximityPrize.Frontier._CharZeroWickEnergy
 import Research.ProximityPrize.Frontier._ChebotarevAlternantClosedForm
