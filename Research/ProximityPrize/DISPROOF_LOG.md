@@ -49035,3 +49035,28 @@ Stickelberger bound, and does not close `δ*` or issue #164.
 ./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_TwoPowerCyclotomicTrace.lean
 ./scripts/lake-locked.sh build Research.ProximityPrize.Frontier._TwoPowerCyclotomicTrace
 ```
+
+## [164-tao-sparse-zero-finite-field] `TaoSparseZeroBound` can fail over a finite field (small-prime instance)
+
+Date: 2026-11-11. Target: `ProximityGap.CapacitySidePrime.TaoSparseZeroBound`
+(`Frontier/UncertaintyCapacitySidePrime.lean`), the hypothesis of
+`farLine_agreement_card_le_capacity` and `farLine_FarFromCode_capacity`. The file header quoted
+Tao's uncertainty principle "for `f : Z/p → ℂ` (or any field)", while the file works over a
+finite field.
+
+`not_taoSparseZeroBound_dom23`: on the smooth domain `μ₁₁ = ⟨2⟩ ⊂ 𝔽₂₃` with `k = 1`,
+`X³ + 2X − 3 = (X − 1)(X − 4)(X − 18)` is a nonzero far-line polynomial with three roots on the
+domain, against the bound `k + 1 = 2`.
+
+Scope: a small-prime instance. Tao's theorem holds over `ℂ`; modulo `p` the relevant Chebotarev
+minors can vanish, and the set of such primes for a given prime order `n` is expected to be
+finite but is not determined here. A search at `k = 1` found failures only at `(n, p) = (11, 23)`
+and `(13, 53)`. Nothing is claimed at production primes: the capacity statements stay
+conditional, on a hypothesis that now visibly depends on `(n, char F)`.
+
+`#print axioms not_taoSparseZeroBound_dom23` reports `propext`, `Classical.choice`, `Quot.sound`.
+
+```
+./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/UncertaintyCapacitySidePrime.lean
+```
+
