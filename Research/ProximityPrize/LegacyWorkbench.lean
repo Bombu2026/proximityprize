@@ -258,9 +258,10 @@ All claims below are exact-checked (verify-don't-believe):
     face ⟺ Karatsuba thin-shift sup (two-sided, `_R18Deg2FaceConverse`); first genuinely-open
     object = the r=3 sextic family cancellation in the β∈(4,6) gap + the deep `r ≈ ln q` wall.
   · **Q1** (Chai–Fan Conj 4.12, the conjugate-norm non-vanishing) is GENUINELY NON-character-sum
-    and at `d=16` at prize scale is REDUCED (not proven) to the stated, unproved hypothesis
-    `V16PrimEmptyCharP` (`Frontier/_wfLB2_Q1Direct_d16`; `V_16^prim = ∅` in char `p` is
-    probe-reported only (scanned `p ≤ 2^24`), bad-reduction threshold 881 ≪ 16⁴); route-(i)
+    and at `d=16` at prize scale is REDUCED (not proven) to `V16PrimEmptyCharP`
+    (`Frontier/_wfLB2_Q1Direct_d16`), which is PROVED at every prime
+    (`v16PrimEmptyCharP_of_prime`; the `p₁`-entry bad-reduction threshold 881 ≪ 16⁴ stays
+    probe-reported, and Q1 itself stays open); route-(i)
     self-similarity breaks in char-`p` at `d=32` (`Frontier/_wfLB_Q1RouteICharPGap`), so `d≥32`
     needs the direct resultant route.
   · **Q2 = Conj 7.1 is THE OPEN GATE.** `LaneB_Q2_SparsityExclusive` proves the orbit
