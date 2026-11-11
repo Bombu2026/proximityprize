@@ -55,6 +55,7 @@ résultat de `validate.sh` et le pied de page Slop restent à coller).
 | `feat/jac-complete-sum-lift-roots-of-unity` | `CompleteSumLift χ s μ_n` prouvée dans JAC0 et JAC4 ; forme corps fini du lemme de fibres dans `PowMapFiberCard.lean` | Build des trois modules OK, `pg-iterate` OK ×3, axiomes propres. |
 | `feat/stepanov-degeneracy-residuals-refuted` | `MajorArcDegenerate`, `PhaseBadSetDegenerate`, `DescentMultiplicityBeyondSeparable` fausses pour tout B et tout M | `pg-iterate` OK ×3. Corollaires de trois lignes de lemmes déjà dans les fichiers : la valeur est de remplacer « pré-criblé » par un théorème. |
 | `feat/r389-uniform-wick-budget-refuted` | Nouveau `_R389UniformWickBudgetRefuted.lean` : `not_uniformSubgroupWickBudget (C : ℝ)`, vérification par le noyau de l'obstruction « sous-corps » notée « not kernel-checked » ; `All.lean` régénéré | `pg-iterate` OK, `check-imports` OK, axiomes propres. Témoin GF(p)ˣ ⊂ GF(p²) : ne dit rien des corps premiers, le dire dans la PR. |
+| `feat/tao-sparse-zero-bound-finite-field-counterexample` | `not_taoSparseZeroBound_dom23` : `TaoSparseZeroBound` échoue sur μ₁₁ ⊂ F₂₃, k = 1 (`X³ + 2X − 3` a trois racines sur le domaine) ; docstring « or any field » corrigée | `pg-iterate` OK, axiomes propres, `lint-style.py` propre. Contre-exemple de petite caractéristique : à présenter comme tel, rien aux premiers de production. Pas de brouillon de corps de PR. |
 | `wip/p1-collinear-triple-free-refuted-unverified` | `not_collinearTripleFree` dans `_P1RateQuarterSharedFreshTripleRefuted.lean` (les témoins du certificat sont tous le mot nul, donc colinéaires) | **NON vérifiée de bout en bout. Ne pas ouvrir de PR avant vérification.** Le fichier hôte (inchangé sur `main`) dépasse 12 Go de RAM à l'élaboration et se fait tuer dans le conteneur cloud. Le terme de preuve n'a été typé que dans une relecture abstraite (les neuf lemmes utilisés pris en hypothèses, énoncés recopiés). À faire sur le Mac : `./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_P1RateQuarterSharedFreshTripleRefuted.lean`, puis renommer en `feat/…` et retirer l'avertissement du message de commit. |
 
 Recouvrements avec la vague 2 locale (`_handoff/scoutC/NOTES.md`), à arbitrer avant de publier :
@@ -86,9 +87,7 @@ branche, avant chaque PR.
   - `QuadraticFiberLaw` (`_R18QuadraticCurveBridge.lean:43`) : instance χ = `quadraticChar` par
     `quadraticChar_card_sqrts`, puis décharge de `hχR`/`hfiber` dans
     `_R18OrderTwoCharacterBridge.lean`. Petit ; la route R20 contourne déjà ce pont.
-  - `TaoSparseZeroBound` (`UncertaintyCapacitySidePrime.lean:120`) : fausse sur ZMod 23, n = 11,
-    k = 1 (`X³ + 2X − 3` a les racines 1, 4, 18 dans μ₁₁). Réfutation de petite caractéristique :
-    à présenter comme telle, la docstring affirme « for any field ».
+  - `TaoSparseZeroBound` : faite (`feat/tao-sparse-zero-bound-finite-field-counterexample`).
   - `SyzdimDictionary` (`_SYZ41SyzdimBridge.lean:249`) : fausse avec A = B = C = ⊥, W = ⊤,
     (X², 1, X, 0, 0). Défaut d'énoncé (les sous-espaces ne sont pas liés aux polynômes).
   - `DomainUniformFiveCliqueFourCollinear` (`_P1RateQuarterFiveFourCliqueBridge.lean:167`) :
