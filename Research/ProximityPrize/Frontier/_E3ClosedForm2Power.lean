@@ -57,6 +57,10 @@ antipode `−ζ^a = ζ^{a + n/2}` being the shift `+ n/2`.
   positions), and the count `6m³ − 9m² + 4m` of pairs of triples with the same multiplicity
   vector. The base cases `n = 2` and `n = 4` are also proven by `decide`
   (`matchableCount_two`, `matchableCount_four`).
+  *Overlap:* the same cubic is already proved in tree for another encoding of the count —
+  count-balanced 6-tuples over a negation-closed subset `G` of a field
+  (`E3StrataCharZero.negSymCount_six_closed`, with `|G|` in place of `n`). The proof here does
+  not go through that file; what it adds is the named `ZMod` statement itself, with no field.
 
 * **`LamLeungAntipodalMatchable`** — the deep char-0 input: for 2-power `n`, every zero-sum
   6-tuple of `n`-th roots is antipodally matchable. This is **Lam–Leung on vanishing sums of
