@@ -183,7 +183,8 @@ theorem sum_erase_zero_pow_eq_nsmul_sum_image (m : ℕ) (hm : m ∣ Fintype.card
       obtain ⟨u, hu, rfl⟩ := Finset.mem_image.mp ht
       have hu0 : u ≠ 0 := (Finset.mem_erase.mp hu).1
       refine ⟨(Units.mk0 u hu0) ^ m, ?_, by simp⟩
-      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, ⟨Units.mk0 u hu0, by simp [powMonoidHom_apply]⟩⟩
+      exact Finset.mem_filter.mpr
+        ⟨Finset.mem_univ _, ⟨Units.mk0 u hu0, by simp [powMonoidHom_apply]⟩⟩
     · intro a _
       rfl
   calc ∑ u ∈ (univ : Finset F).erase 0, g (u ^ m)
