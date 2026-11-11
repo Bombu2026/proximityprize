@@ -49035,3 +49035,29 @@ Stickelberger bound, and does not close `δ*` or issue #164.
 ./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_TwoPowerCyclotomicTrace.lean
 ./scripts/lake-locked.sh build Research.ProximityPrize.Frontier._TwoPowerCyclotomicTrace
 ```
+
+## [164-p1-collinear-triple-free-refuted] The collinear refined residual `CollinearTripleFree` is false at P1
+
+Date: 2026-11-11. Target: `P1RateQuarterNonCollinearTriple.CollinearTripleFree`, the collinear
+half of the split `sharedFreshTripleFree_of_split`, recorded as OPEN in
+`Frontier/_P1RateQuarterNonCollinearTriple.lean`.
+
+`Frontier/_P1RateQuarterSharedFreshTripleRefuted.lean` already refuted `SharedFreshTripleFree`
+on every injective P1 evaluation domain with a family of witnesses through one fresh coordinate.
+Every witness codeword of that family is the zero codeword, so any three of them lie on the
+trivial pencil `w₀ = w₁ = 0`. `not_collinearTripleFree` records this: `CollinearTripleFree dom`
+fails for every `dom : Fin N ↪ F` at the literal P1 parameters
+(`sharedTripleWitnessData_patchScalar` packages one witness).
+
+Consequence: the split is a logical implication with a false premise and a false conclusion.
+`NonCollinearTripleFree` is not decided by this certificate; its `F_37` shape realization is not
+a P1-scale refutation.
+
+Scope: this is a statement about the named residual, not about the predecessor bad-count target
+or δ*.
+
+Check to run before citing (the host file needs more than 12 GB of RAM to elaborate):
+
+```
+./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_P1RateQuarterSharedFreshTripleRefuted.lean
+```

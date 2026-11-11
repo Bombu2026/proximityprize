@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ArkLib Contributors
 -/
 import Research.ProximityPrize.Frontier._P1RateQuarterSharedFreshCoordinate
+import Research.ProximityPrize.Frontier._P1RateQuarterNonCollinearTriple
 
 /-!
 # The P1 shared-fresh-triple residual is false
@@ -31,6 +32,12 @@ coordinates.  It is not jointly explainable: any explaining pair vanishes on `C`
 at least `k`, hence is the zero pair; but `q_1(x)=f_B(dom(x))` is nonzero because `x` is not in
 `B`.  Thus one fixed fresh coordinate carries `|J \ B| = N-T+1 = 480946859` distinct scalars.
 In particular it carries three, refuting `SharedFreshTripleFree`.
+
+Every witness codeword in this family is the zero codeword, so any three of them lie on the
+trivial pencil `w₀ = w₁ = 0`.  The same certificate therefore refutes the *collinear* refined
+residual `CollinearTripleFree` of `_P1RateQuarterNonCollinearTriple.lean`
+(`not_collinearTripleFree`), again on every injective P1 evaluation domain.  The non-collinear
+refined residual `NonCollinearTripleFree` is not touched by this certificate.
 -/
 
 set_option autoImplicit false
@@ -49,6 +56,7 @@ namespace ArkLib.ProximityGap.Frontier.P1RateQuarterSharedFreshTripleRefuted
 open ArkLib.ProximityGap.PrizeShapePrimeP30
 open ArkLib.ProximityGap.Frontier.P1RateQuarterScaleArithmetic
 open ArkLib.ProximityGap.Frontier.P1RateQuarterSharedFreshCoordinate
+open ArkLib.ProximityGap.Frontier.P1RateQuarterNonCollinearTriple
 
 local instance localInstance_P1RateQuarterSharedFreshTripleRefuted_1 : Fact (Nat.Prime P) := ⟨prime_P⟩
 local instance localInstance_P1RateQuarterSharedFreshTripleRefuted_2 : NeZero N := ⟨by norm_num [N]⟩
@@ -386,6 +394,39 @@ theorem not_sharedFreshTripleFree (dom : Fin N ↪ F) :
     sharedWitnessAt_patchScalar dom secondPatchPoint_mem_patchPoints,
     sharedWitnessAt_patchScalar dom thirdPatchPoint_mem_patchPoints⟩
 
+/-! ## The collinear refined residual is false as well
+
+All witnesses above use the zero codeword, so the refuting triple is collinear. -/
+
+/-- Each patch point gives explicit shared-triple witness data whose codeword is zero. -/
+theorem sharedTripleWitnessData_patchScalar (dom : Fin N ↪ F)
+    {x : Fin N} (hx : x ∈ patchPoints) :
+    SharedTripleWitnessData dom (receivedZero dom) (receivedOne dom) freshPoint
+      (patchScalar dom x) (witnessSet x) (0 : Fin N → F) :=
+  ⟨freshPoint_mem_witnessSet x, (witnessSet_card hx).ge, (predecessorCode dom).zero_mem,
+    zero_agrees_on_witnessSet dom hx, not_joint_on_witnessSet dom hx⟩
+
+/-- **Refutation of the collinear refined residual.**  `CollinearTripleFree` fails on every
+injective P1 evaluation domain: the three zero-codeword witnesses through `freshPoint` lie on the
+trivial pencil `w₀ = w₁ = 0`.  Only `NonCollinearTripleFree` remains of the split
+`sharedFreshTripleFree_of_split`, whose conclusion `SharedFreshTripleFree` is itself false
+(`not_sharedFreshTripleFree`). -/
+theorem not_collinearTripleFree (dom : Fin N ↪ F) :
+    ¬ CollinearTripleFree dom := by
+  intro hfree
+  exact hfree (receivedZero dom) (receivedOne dom) jointSet
+    (jointSet_card.ge) (joint_pair_on_jointSet dom) freshPoint freshPoint_not_mem_jointSet
+    (patchScalar dom firstPatchPoint) (patchScalar dom secondPatchPoint)
+    (patchScalar dom thirdPatchPoint) (patchScalar_first_ne_second dom)
+    (patchScalar_first_ne_third dom) (patchScalar_second_ne_third dom)
+    (witnessSet firstPatchPoint) (witnessSet secondPatchPoint) (witnessSet thirdPatchPoint)
+    0 0 0
+    (sharedTripleWitnessData_patchScalar dom firstPatchPoint_mem_patchPoints)
+    (sharedTripleWitnessData_patchScalar dom secondPatchPoint_mem_patchPoints)
+    (sharedTripleWitnessData_patchScalar dom thirdPatchPoint_mem_patchPoints)
+    ⟨0, (predecessorCode dom).zero_mem, 0, (predecessorCode dom).zero_mem,
+      by simp, by simp, by simp⟩
+
 end ArkLib.ProximityGap.Frontier.P1RateQuarterSharedFreshTripleRefuted
 
 /-! ## Axiom audit -/
@@ -397,3 +438,4 @@ open ArkLib.ProximityGap.Frontier.P1RateQuarterSharedFreshTripleRefuted
 #print axioms sharedWitnessAt_patchScalar
 #print axioms sharedFresh_family_card
 #print axioms not_sharedFreshTripleFree
+#print axioms not_collinearTripleFree

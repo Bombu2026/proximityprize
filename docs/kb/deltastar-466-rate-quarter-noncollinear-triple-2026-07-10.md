@@ -81,6 +81,9 @@ coordinates, making the shared stack values consistent without collinearity.
   forms via `SharedTripleWitnessData`).
 * `CollinearTripleFree` (OPEN): a collinear triple carries a `≥ 352M`
   agreement pencil — below `T = 592,794,966`, so nothing contradicts it yet.
+  **Update 2026-11-11:** FALSE on every injective P1 domain, kernel-checked as
+  `not_collinearTripleFree` in `_P1RateQuarterSharedFreshTripleRefuted.lean`
+  (the zero-codeword witnesses of that certificate are collinear).
 * `NonCollinearTripleFree` (OPEN, **conjecturally false**): the `F_37`
   construction uses only products of linear factors over subsets of the
   domain.  On the literal smooth P1 domain `μ_{2^30}`, products over

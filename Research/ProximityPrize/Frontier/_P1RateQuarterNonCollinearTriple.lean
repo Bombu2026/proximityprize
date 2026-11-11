@@ -40,6 +40,12 @@ refined residuals `CollinearTripleFree ∧ NonCollinearTripleFree`
 (`sharedFreshTripleFree_of_split`), and the rigidity theorem confines the open content of the
 non-collinear side to triple overlap `≤ k - 1` (`noncollinear_triple_overlap_le`).
 
+**Status of the split.** The collinear side is false on every injective P1 domain
+(`P1RateQuarterSharedFreshTripleRefuted.not_collinearTripleFree`: three zero-codeword witnesses
+through one fresh coordinate), as is `SharedFreshTripleFree` itself
+(`not_sharedFreshTripleFree`).  The reduction below is therefore a logical implication with a
+false premise; `NonCollinearTripleFree` is the only refined residual not yet decided at P1.
+
 Executable certificate: `scripts/probes/probe_rate_quarter_p1_noncollinear_triple.py`.
 -/
 
@@ -194,9 +200,11 @@ theorem sharedWitnessAt_iff_data (dom : Fin N ↪ F) (u₀ u₁ : Fin N → F)
   · rintro ⟨S, p, hiS, hcard, hp, ha, hno⟩
     exact ⟨S, hiS, hcard, ⟨p, hp, ha⟩, hno⟩
 
-/-- **Refined residual (OPEN).**  No *collinear* shared-fresh triple exists at the P1
-predecessor.  By the collinear boost, such a triple carries a joint pencil with agreement at
-least `352321537 ≥ k`; this residual asserts that even so it cannot exist. -/
+/-- **Refined residual (FALSE on every P1 domain).**  No *collinear* shared-fresh triple
+exists at the P1 predecessor.  By the collinear boost, such a triple carries a joint pencil with
+agreement at least `352321537 ≥ k`; this residual asserts that even so it cannot exist.
+Refuted by `P1RateQuarterSharedFreshTripleRefuted.not_collinearTripleFree`: three zero-codeword
+witnesses through one fresh coordinate are collinear on the trivial pencil. -/
 def CollinearTripleFree (dom : Fin N ↪ F) : Prop :=
   ∀ (u₀ u₁ : Fin N → F) (J : Finset (Fin N)),
     predecessorThreshold ≤ J.card →
