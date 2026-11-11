@@ -1,4 +1,4 @@
-Branch: `feat/stepanov-degeneracy-residuals-refuted` (commit `e8d2da6c5`, base `1e7ebbfeb`)
+Branch: `feat/stepanov-degeneracy-residuals-refuted` (head `e8d2da6c5`, 1 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): refute the three Stepanov degeneracy residuals for every set and multiplicity
 

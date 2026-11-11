@@ -1,4 +1,4 @@
-Branch: `feat/b18-divided-difference-complete-homog` (commit `21030cede`, base `1e7ebbfeb`)
+Branch: `feat/b18-divided-difference-complete-homog` (head `21030cede`, 1 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): prove DividedDifferenceEqCompleteHomog (B18) over every field
 

@@ -1,4 +1,4 @@
-Branch: `feat/e3-matchable-count-closed-form` (commits `744e652b1` + `19cf0fd3`, base `1e7ebbfeb`)
+Branch: `feat/e3-matchable-count-closed-form` (head `ef09c7e40`, 3 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): prove MatchableCountClosedForm for every even n
 

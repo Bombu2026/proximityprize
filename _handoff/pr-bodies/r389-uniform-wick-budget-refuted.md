@@ -1,4 +1,4 @@
-Branch: `feat/r389-uniform-wick-budget-refuted` (commit `f614177ad`, base `1e7ebbfeb`)
+Branch: `feat/r389-uniform-wick-budget-refuted` (head `7c5c65a96`, 2 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): refute UniformSubgroupWickBudget for every constant
 

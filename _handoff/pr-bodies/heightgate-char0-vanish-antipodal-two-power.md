@@ -1,4 +1,4 @@
-Branch: `feat/heightgate-char0-vanish-antipodal-two-power` (commit `a634bd41f`, base `1e7ebbfeb`)
+Branch: `feat/heightgate-char0-vanish-antipodal-two-power` (head `46e90672c`, 2 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): prove Char0VanishImpliesAntipodal at every 2-power
 

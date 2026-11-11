@@ -39,7 +39,9 @@ pour gagner des Points de contributeur. Compte GitHub : `Bombu2026`. Commits sig
 
 ### Branches ajoutées par la session cloud du 2026-11-11
 
-Toutes basées sur `1e7ebbfeb`, un commit chacune, poussées sur le fork, aucune PR ouverte.
+Toutes basées sur `1e7ebbfeb`, poussées sur le fork, aucune PR ouverte (un commit de résultat,
+parfois suivi d'un commit `docs`/`style` ; `./scripts/lint-style.py <fichiers modifiés>` ne
+signale plus rien sur les huit branches `feat/`).
 Brouillons de corps de PR : `_handoff/pr-bodies/<nom>.md` (sorties `pg-iterate` réelles ; le
 résultat de `validate.sh` et le pied de page Slop restent à coller).
 

@@ -1,4 +1,4 @@
-Branch: `feat/jac-complete-sum-lift-roots-of-unity` (commit `bdb026d70`, base `1e7ebbfeb`)
+Branch: `feat/jac-complete-sum-lift-roots-of-unity` (head `f4495df9a`, 2 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): prove CompleteSumLift for the n-th roots of unity
 

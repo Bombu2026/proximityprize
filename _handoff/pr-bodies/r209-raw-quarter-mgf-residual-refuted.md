@@ -1,4 +1,4 @@
-Branch: `feat/r209-raw-quarter-mgf-residual-refuted` (commit `2b16abee6`, base `1e7ebbfeb`)
+Branch: `feat/r209-raw-quarter-mgf-residual-refuted` (head `2b16abee6`, 1 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): refute NonzeroQuarterMGFResidual at prize scale
 

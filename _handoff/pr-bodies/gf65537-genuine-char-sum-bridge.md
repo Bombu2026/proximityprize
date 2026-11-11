@@ -1,4 +1,4 @@
-Branch: `feat/gf65537-genuine-char-sum-bridge` (commit `6ae2b822b`, base `1e7ebbfeb`)
+Branch: `feat/gf65537-genuine-char-sum-bridge` (head `df90d9cc7`, 2 commit(s) on base `1e7ebbfeb`)
 
 Title: feat(ProximityPrize): prove GFCharSumBridge for the genuine μ₃₂ character sum at p = 65537
 
