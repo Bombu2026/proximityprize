@@ -49035,3 +49035,32 @@ Stickelberger bound, and does not close `δ*` or issue #164.
 ./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_TwoPowerCyclotomicTrace.lean
 ./scripts/lake-locked.sh build Research.ProximityPrize.Frontier._TwoPowerCyclotomicTrace
 ```
+
+## [164-stepanov-degeneracy-residuals-false] The three Stepanov degeneracy residuals are false for every set and multiplicity
+
+Date: 2026-11-11. Targets: `StepanovAtBstar.MajorArcDegenerate`
+(`Frontier/_StepanovAtBstar.lean`), `StepanovSupNorm.PhaseBadSetDegenerate`
+(`Frontier/_wf5G2_stepanov_supnorm.lean`) and `Wall5.DescentMultiplicityBeyondSeparable`
+(`Frontier/_WallStepanovSubgroupDescent.lean`). All three have the same body: a nonzero
+polynomial of degree `< M·|B|` vanishing to order `M` on `B`. They were recorded as
+"pre-screened FALSE" on the strength of full-rank measurements at `n ≤ 64`, `M ∈ {2, 3}`
+(see `[doorIV-stepanov-at-bstar-export]`).
+
+Each file already contains the counting inequality `M·|B| ≤ deg F'` for such a polynomial
+(`stepanov_bstar_bound`, `stepanov_bad_set_bound`, `Stepanov.card_le_natDegree_of_vanishing`).
+That inequality is the negation of the residual, for every finset `B` over every field and every
+`M`: `not_majorArcDegenerate`, `not_phaseBadSetDegenerate`,
+`not_descentMultiplicityBeyondSeparable`, and `no_bstar_saving` for the equivalent form of
+`bstar_saving_iff_degenerate`.
+
+Reading: the measurements were instances of a theorem. A past-Johnson Stepanov saving cannot be
+phrased as one of these three Props; it would need an auxiliary that is allowed to be reduced
+modulo `X^n - 1`, or vanishing imposed on a set larger than `B`. Nothing here bounds a bad set.
+
+`#print axioms` on the four new theorems reports `propext`, `Classical.choice`, `Quot.sound`.
+
+```
+./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_StepanovAtBstar.lean
+./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_wf5G2_stepanov_supnorm.lean
+./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_WallStepanovSubgroupDescent.lean
+```
