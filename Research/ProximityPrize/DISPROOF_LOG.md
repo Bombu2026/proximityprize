@@ -49035,3 +49035,34 @@ Stickelberger bound, and does not close `δ*` or issue #164.
 ./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_TwoPowerCyclotomicTrace.lean
 ./scripts/lake-locked.sh build Research.ProximityPrize.Frontier._TwoPowerCyclotomicTrace
 ```
+
+## [164-r389-uniform-wick-budget-refuted] `UniformSubgroupWickBudget C` is false for every `C` (kernel-checked)
+
+Date: 2026-11-11. Target: `ArkLib.ProximityGap.R389WickBudgetSupBound.UniformSubgroupWickBudget`.
+Entry `[164-r389-subfield-wick-budget]` (2026-10-14) certified finite proper-subfield anchors
+and recorded the family argument as written, "not kernel-checked", without recording the
+predicate as refuted.
+
+`Frontier/_R389UniformWickBudgetRefuted.lean` proves `not_uniformSubgroupWickBudget (C : ℝ) :
+¬ UniformSubgroupWickBudget C`.
+
+- `C ≥ 0`: for a prime `p > (36·⌈C⌉₊)²` take `F = GF(p²)`, `d = p - 1`. The torsion set contains
+  `GF(p)^×` (`pred_le_card_torsionSet`) and lies in the proper additive subgroup `{x^p = x}`, so
+  a primitive additive character is trivial on it
+  (`FFModelW4.ffThin_prizeLaw_countermodel`). The R389 sup bound
+  `sup_le_three_sqrt_of_dcEnergyBudget` then gives `|μ_{p-1}| ≤ 9·C·log q`
+  (`card_torsionSet_le_of_budget`), which fails. The exact subfield energy is not needed.
+- `C < 0`: at `F = ZMod 2`, `d = 1` the depth is `1`, the budget is negative and the DC floor
+  (`R240GeneralRFoldVariance.dc_floor`) makes the left side nonnegative.
+
+Reusable obstruction: `card_torsionSet_le_of_budget` — in any finite field of characteristic `p`
+with more than `p` elements, a Wick budget at `μ_{p-1}` caps `|μ_{p-1}|` by `9·C·log q`.
+
+Scope: the witness is a subfield subgroup with no cancellation. Nothing is said about prime
+fields or about `μ_{2^k} ⊂ 𝔽_p`; the sponsor prime-field budget stays open in both directions.
+
+`#print axioms` on the five theorems reports `propext`, `Classical.choice`, `Quot.sound`.
+
+```
+./scripts/pg-iterate.sh Research/ProximityPrize/Frontier/_R389UniformWickBudgetRefuted.lean
+```

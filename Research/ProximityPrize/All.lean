@@ -2522,6 +2522,7 @@ import Research.ProximityPrize.Frontier._R388FixedTailMatchingRigidity
 import Research.ProximityPrize.Frontier._R388SectorRelationCountBound
 import Research.ProximityPrize.Frontier._R389CensusIdentityExactFiber
 import Research.ProximityPrize.Frontier._R389FixedTailMatchingCellBound
+import Research.ProximityPrize.Frontier._R389UniformWickBudgetRefuted
 import Research.ProximityPrize.Frontier._R389WickBudgetSupBound
 import Research.ProximityPrize.Frontier._R38SexticVarietyInput
 import Research.ProximityPrize.Frontier._R390CharZeroNonzeroRepFourBound
