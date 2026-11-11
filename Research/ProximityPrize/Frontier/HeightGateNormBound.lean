@@ -295,7 +295,8 @@ a disjoint union of pairs `{i, i+n/2}`). The target conclusion of the gate. -/
 def Antipodal (n : ℕ) (S : Finset ℕ) : Prop :=
   ∀ i ∈ S, (i + n / 2) % n ∈ S
 
-/-- **Named obligation (PROVED at `n = 2^a`: `char0VanishImpliesAntipodal_two_pow`).** For `n = 2^a`, a
+/-- **Named obligation (PROVED at `n = 2^a`: `char0VanishImpliesAntipodal_two_pow`).**
+For `n = 2^a`, a
 vanishing sum of distinct `n`-th roots of unity is antipodal: if `Σ_{i∈S} z^i = 0` over `ℂ`
 (`z` primitive) then `Antipodal n S`. This is the Lam–Leung structure theorem for prime-power
 `N = 2^a` (the only vanishing relations are `ℤ`-spans of `1 + z^{n/2} = 0`). It supplies the last
